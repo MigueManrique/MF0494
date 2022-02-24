@@ -30,4 +30,40 @@ public class Funciones {
 	
 	// Escribe las sentencias de los apartados 1 y 2
 
+	
+	public static void calculaSancion(float tasa) {
+		if (tasa < 0.25) {
+			System.out.println("El conductor con la tasa de alcolemia " + String.format("%.2f", tasa) + "mg/l No tiene sanción.");
+		}else if ((tasa >= 0.25) && (tasa < 0.5)) {
+			System.out.println("El conductor con la tasa de alcolemia " + String.format("%.2f", tasa) + "mg/l Tiene una sanción de 500€ y pérdida de 4 puntos.");
+		}else if ((tasa >= 0.5) && (tasa < 0.6)) {
+			System.out.println("El conductor con la tasa de alcolemia " + String.format("%.2f", tasa) + "mg/l Tiene una sanción de 1000€ y pérdida de 6 puntos.");
+		}else {
+			System.out.println("El conductor con la tasa de alcolemia " + String.format("%.2f", tasa) + "mg/l Tiene una sanción de retirada del carnet y de 3 a 6 meses de cárcel.");
+		}
+	}
+	
+	public static void restaPuntos(int[] puntos, int[] sanciones) {
+		for (int i = 0; i < puntos.length; i++) {
+			puntos[i] = puntos[i] - sanciones[i];
+			if (puntos[i] < 0) puntos[i]= 0;
+		}
+	}
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

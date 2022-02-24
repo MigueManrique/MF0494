@@ -5,7 +5,9 @@ package controlador;
 
 import java.util.ArrayList;
 
+import dao.InfractorDAO;
 import dao.SancionDAO;
+import modelo.Infractor;
 import modelo.Sancion;
 import vista.DialogoInsertarInfractor;
 import vista.VentanaMostrarInfractores;
@@ -20,25 +22,30 @@ public class Controlador {
 	// VEntanas del sistema
 	private VentanaPpal ventanaPpal;
 	private DialogoInsertarInfractor dialogoInsertarInfractor;
+	private VentanaMostrarInfractores ventanaMostrarInfractores;
 
 	
 	// Objetos DAO o CRUD de la base de datos
 	private SancionDAO sancionDAO;
+	private InfractorDAO infractorDAO;
 
 	
 	public Controlador() {
 		// Creamos las ventanas de la aplicación
 		ventanaPpal = new VentanaPpal();
 		dialogoInsertarInfractor = new DialogoInsertarInfractor();
+		ventanaMostrarInfractores = new VentanaMostrarInfractores();
 		
 		
 		// Dando acceso al controlador desde las vistas
 		ventanaPpal.setControlador(this);
 		dialogoInsertarInfractor.setControlador(this);
+		ventanaMostrarInfractores.setControlador(this);
 		
 		
 		// Creamos los objetos DAO
 		sancionDAO = new SancionDAO();
+		infractorDAO = new InfractorDAO();
 	}
 	
 	public void inciarPrograma() {
@@ -51,6 +58,15 @@ public class Controlador {
 		dialogoInsertarInfractor.setListaSanciones(listaSanciones);
 		dialogoInsertarInfractor.setVisible(true);
 	}
+
+	public void ventanaMostrarInfractores() {
+		ArrayList<Infractor> listaInfractores = new ArrayList<Infractor>();
+		listaInfractores = infractorDAO.obtenerInfractores();
+		ventanaMostrarInfractores.setListaInfractores(listaInfractores);
+		ventanaMostrarInfractores.setVisible(true);
+		
+	}
+
 	
 	
 }
