@@ -34,7 +34,7 @@ public class InfractorDAO {
 			
 			// Bucle para recorrer todas las filas que devuelve la consulta
 			while(resultado.next()) {
-				int dni = resultado.getInt("dni");
+				String dni = resultado.getString("dni");
 				String nombre = resultado.getString("nombre");
 				String apellidos = resultado.getString("apellidos");
 				int antiguedad = resultado.getInt("antiguedad");
@@ -73,7 +73,7 @@ public class InfractorDAO {
 		try {
 			consulta = con.prepareStatement("INSERT INTO INFRACTORES (dni, nombre, apellidos, antiguedad, sancion, puntos)"
 					+ " VALUES (?,?,?,?,?,?) ");
-			consulta.setInt(1, in.getDni());
+			consulta.setString(1, in.getDni());
 			consulta.setString(2, in.getNombre());
 			consulta.setString(2, in.getApellidos());
 			consulta.setInt(4, in.getAntiguedad());

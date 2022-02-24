@@ -3,7 +3,7 @@ package modelo;
 import java.util.Objects;
 
 public class Infractor {
-	private int dni;
+	private String dni;
 	private String nombre;
 	private String apellidos;
 	private int antiguedad;
@@ -11,7 +11,7 @@ public class Infractor {
 	private int puntos;
 	
 	
-	public Infractor(int dni, String nombre, String apellidos, int antiguedad, float sancion, int puntos) {
+	public Infractor(String dni, String nombre, String apellidos, int antiguedad, float sancion, int puntos) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -21,13 +21,14 @@ public class Infractor {
 	}
 	
 	public Infractor() {
+		this.dni="";
 		this.nombre ="";
 		this.apellidos="";
 	}
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 	public String getNombre() {

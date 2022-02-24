@@ -77,7 +77,7 @@ public class VentanaMostrarInfractores extends JFrame {
 			}
 		) {
 			Class[] columnTypes = new Class[] {
-				Integer.class, String.class, String.class, Integer.class, Float.class, Integer.class
+				String.class, String.class, String.class, Integer.class, Float.class, Integer.class
 			};
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];

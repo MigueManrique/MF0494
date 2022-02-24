@@ -100,18 +100,19 @@ public class VentanaMultas extends JFrame {
 		lblImporte.setFont(new Font("Arial", Font.BOLD, 13));
 		contentPane.add(lblImporte, "cell 0 3");
 		
-		lblCantidadImporte = new JLabel("------");
+		lblCantidadImporte = new JLabel("200");
 		lblCantidadImporte.setFont(new Font("Arial", Font.BOLD, 13));
 		contentPane.add(lblCantidadImporte, "cell 1 3");
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String seleccionado =(String) comboSancion.getSelectedItem();
 				String nombre = textNombre.getText();
 				String apellidos = textApellidos.getText();
 				String infraccion = (String) comboSancion.getSelectedItem();
 				int importe;
-				if (infraccion =="No llevar casco") {
+				if (seleccionado.equals("No llevar casco")) {
 					importe = 200;
 				}else {
 					importe = 500;
@@ -119,7 +120,7 @@ public class VentanaMultas extends JFrame {
 				double prontopago = calculaProntoPago(importe);
 				textResultado.setText("Conductor: " + nombre + " " + apellidos + "\n" +
 										"Infraccion: " + infraccion + "\n" +
-										"Importe: " + "\n" + 
+										"Importe: " + importe +"\n" + 
 										"Pronto pago: " + prontopago);
 			}
 		});
